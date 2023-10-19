@@ -23,6 +23,7 @@ const RegisterForm = () => {
       <label className={s.label}>
         Username
         <input
+          autocomplete="on"
           className={s.input}
           type="text"
           name="name"
@@ -33,6 +34,7 @@ const RegisterForm = () => {
       <label className={s.label}>
         Email
         <input
+          autocomplete="on"
           className={s.input}
           type="email"
           name="email"
@@ -43,6 +45,7 @@ const RegisterForm = () => {
       <label className={s.label}>
         Password
         <input
+          autocomplete="on"
           className={s.input}
           type="password"
           name="password"

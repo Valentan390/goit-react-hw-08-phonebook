@@ -23,6 +23,7 @@ const LoginForm = () => {
       <label className={s.label}>
         Email
         <input
+          autocomplete="on"
           className={s.input}
           type="email"
           name="email"
@@ -33,6 +34,7 @@ const LoginForm = () => {
       <label className={s.label}>
         Password
         <input
+          autocomplete="on"
           className={s.input}
           type="password"
           name="password"
