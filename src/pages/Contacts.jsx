@@ -6,11 +6,12 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/contactsThunk';
-import { selectLoading } from 'redux/contacts/selectors';
+import { selectContacts, selectLoading } from 'redux/contacts/selectors';
 
 const Contact = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
+  const items = useSelector(selectContacts);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -26,10 +27,12 @@ const Contact = () => {
       </Section>
 
       <div>{isLoading && 'Request in progress...'}</div>
-      <Section title={'Contacts'}>
-        <Filter />
-        <Contacts />
-      </Section>
+      {items.length > 0 && (
+        <Section title={'Contacts'}>
+          <Filter />
+          <Contacts />
+        </Section>
+      )}
     </>
   );
 };
