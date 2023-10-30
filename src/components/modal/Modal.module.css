@@ -1,0 +1,52 @@
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
+}
+
+.Modal {
+  width: 430px;
+  height: 216px;
+  border: 2px solid;
+  /* background-clip: initial; */
+  background-color: bisque;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.inputModal {
+  width: 300px;
+  height: 33px;
+  font-size: large;
+  border-radius: 3px;
+  /* border-radius: 9%; */
+  /* margin: 10px; */
+}
+
+.labelModal {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  margin-bottom: 8px;
+}
+
+.duttonEditContact {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin-top: 18px;
+  border-radius: 50px;
+  background-color: chartreuse;
+}

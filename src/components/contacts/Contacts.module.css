@@ -15,21 +15,46 @@
   justify-content: space-between;
   align-items: center;
   border: 2px solid black;
-  padding: 5px;
+  padding: 10px;
   background-color: rgb(249, 249, 247);
   font-size: 20px;
 }
 
 .buttonDeleteContacts {
-  width: 100px;
+  width: auto;
   height: 30px;
   border-radius: 10%;
   cursor: pointer;
-  padding: 0;
+  padding: 0 10px;
   background-color: yellow;
 }
 
 .buttonDeleteContacts:hover,
 .buttonDeleteContacts:focus {
   background-color: red;
+}
+
+.modalOpen {
+  overflow: hidden;
+}
+
+.buttonContactListItem {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pContactListItem {
+  width: min-content;
+  margin: 0;
+}
+
+.buttonRemoveContacts {
+  width: auto;
+  height: 30px;
+  border-radius: 10%;
+  cursor: pointer;
+  padding: 0 10px;
+  background-color: greenyellow;
 }

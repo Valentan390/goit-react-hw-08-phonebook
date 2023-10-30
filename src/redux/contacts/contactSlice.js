@@ -1,11 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addContact, deleteContact, fetchContacts } from './contactsThunk';
+import {
+  addContact,
+  deleteContact,
+  fetchContacts,
+  updateContact,
+} from './contactsThunk';
 
 const contactsInitialState = {
   contacts: {
     items: [],
     isLoading: false,
     error: null,
+    modalContact: null,
   },
   filter: '',
 };
@@ -16,6 +22,11 @@ const contactSlice = createSlice({
   reducers: {
     filterContacts: (state, action) => {
       state.filter = action.payload;
+    },
+    filterModalContact: (state, action) => {
+      state.contacts.modalContact = state.contacts.items.find(
+        contact => contact.id === action.payload
+      );
     },
   },
   extraReducers: builder => {
@@ -57,9 +68,14 @@ const contactSlice = createSlice({
       .addCase(deleteContact.rejected, (state, { payload }) => {
         state.contacts.error = payload;
         state.contacts.isLoading = false;
+      })
+      .addCase(updateContact.fulfilled, (state, { payload }) => {
+        state.contacts.items = state.contacts.items.map(contact =>
+          contact.id === payload.id ? payload : contact
+        );
       });
   },
 });
 
-export const { filterContacts } = contactSlice.actions;
+export const { filterContacts, filterModalContact } = contactSlice.actions;
 export const contactReducer = contactSlice.reducer;
